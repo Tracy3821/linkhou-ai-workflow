@@ -22,43 +22,71 @@
     </div>
 
     <nav class="sidebar-nav">
-      <div class="nav-group-label">核心流程</div>
+      <div class="nav-group-label">业务流程总览</div>
       <a href="#" class="nav-item active" data-page="overview">
         <i class="fas fa-project-diagram"></i><span>工作流总览</span>
       </a>
-      <a href="#" class="nav-item" data-page="requirement">
-        <i class="fas fa-lightbulb"></i><span>需求中心</span>
-        <span class="nav-badge new">AI</span>
+      <a href="#" class="nav-item" data-page="approval">
+        <i class="fas fa-clipboard-check"></i><span>流程签核</span>
+        <span class="nav-badge new">智能</span>
       </a>
-      <a href="#" class="nav-item" data-page="proposal">
-        <i class="fas fa-magic"></i><span>AI方案引擎</span>
-        <span class="nav-badge ai">智能</span>
+
+      <div class="nav-group-label">IPD - 研发产品端</div>
+      <a href="#" class="nav-item" data-page="requirement">
+        <i class="fas fa-lightbulb"></i><span>需求预测</span>
+        <span class="nav-badge ai">AI</span>
+      </a>
+      <a href="#" class="nav-item" data-page="design">
+        <i class="fas fa-drafting-compass"></i><span>仿真设计</span>
+        <span class="nav-badge count" id="badge-design">2</span>
       </a>
       <a href="#" class="nav-item" data-page="rd">
         <i class="fas fa-flask"></i><span>研发工作台</span>
         <span class="nav-badge count" id="badge-rd">3</span>
       </a>
-      <a href="#" class="nav-item" data-page="product">
-        <i class="fas fa-cube"></i><span>产品管理</span>
-        <span class="nav-badge count" id="badge-product">2</span>
+      <a href="#" class="nav-item" data-page="bom">
+        <i class="fas fa-list-alt"></i><span>BOM管理</span>
+        <span class="nav-badge count" id="badge-bom">5</span>
       </a>
 
-      <div class="nav-group-label">商业流程</div>
+      <div class="nav-group-label">LTC - 销售交付端</div>
+      <a href="#" class="nav-item" data-page="leads">
+        <i class="fas fa-user-plus"></i><span>线索管理</span>
+        <span class="nav-badge count" id="badge-leads">8</span>
+      </a>
       <a href="#" class="nav-item" data-page="sales">
-        <i class="fas fa-handshake"></i><span>销售管理</span>
+        <i class="fas fa-handshake"></i><span>销售报价</span>
         <span class="nav-badge count" id="badge-sales">5</span>
       </a>
       <a href="#" class="nav-item" data-page="delivery">
         <i class="fas fa-truck"></i><span>交付管理</span>
         <span class="nav-badge count" id="badge-delivery">4</span>
       </a>
+      <a href="#" class="nav-item" data-page="finance">
+        <i class="fas fa-money-bill-wave"></i><span>回款管理</span>
+        <span class="nav-badge count" id="badge-finance">3</span>
+      </a>
 
-      <div class="nav-group-label">智能支撑</div>
+      <div class="nav-group-label">ITR - 客户服务端</div>
+      <a href="#" class="nav-item" data-page="service">
+        <i class="fas fa-headset"></i><span>服务工单</span>
+        <span class="nav-badge count" id="badge-service">12</span>
+      </a>
       <a href="#" class="nav-item" data-page="knowledge">
         <i class="fas fa-brain"></i><span>知识库</span>
+        <span class="nav-badge ai">智能</span>
       </a>
+      <a href="#" class="nav-item" data-page="maintenance">
+        <i class="fas fa-tools"></i><span>预防维护</span>
+        <span class="nav-badge count" id="badge-maintenance">6</span>
+      </a>
+
+      <div class="nav-group-label">智能决策</div>
       <a href="#" class="nav-item" data-page="cockpit">
         <i class="fas fa-tachometer-alt"></i><span>管理驾驶舱</span>
+      </a>
+      <a href="#" class="nav-item" data-page="analytics">
+        <i class="fas fa-chart-line"></i><span>数据分析</span>
       </a>
     </nav>
 
@@ -381,6 +409,518 @@
           <button class="kb-cat" onclick="filterKB('AMR',this)">AMR移动机器人</button>
         </div>
         <div class="kb-grid" id="kbGrid"></div>
+      </div>
+
+      <!-- ===== APPROVAL WORKFLOW ===== -->
+      <div class="page" id="page-approval">
+        <div class="approval-header">
+          <h2><i class="fas fa-clipboard-check"></i> 智能流程签核系统</h2>
+          <p>基于公司全产品业务闭环流程图的AI智能审批系统</p>
+        </div>
+        
+        <div class="approval-pipeline">
+          <div class="approval-stage">
+            <div class="stage-header">
+              <i class="fas fa-search"></i>
+              <span>需求评定</span>
+              <div class="stage-badge">市场/产品评估</div>
+            </div>
+            <div class="stage-content">
+              <div class="pending-items">待审批: 3项</div>
+              <button class="btn btn-sm btn-ai">AI辅助审批</button>
+            </div>
+          </div>
+          <div class="approval-arrow">→</div>
+          
+          <div class="approval-stage">
+            <div class="stage-header">
+              <i class="fas fa-cube"></i>
+              <span>产品规划</span>
+              <div class="stage-badge">产品经理评估</div>
+            </div>
+            <div class="stage-content">
+              <div class="pending-items">待审批: 2项</div>
+              <button class="btn btn-sm btn-ai">AI辅助审批</button>
+            </div>
+          </div>
+          <div class="approval-arrow">→</div>
+          
+          <div class="approval-stage">
+            <div class="stage-header">
+              <i class="fas fa-cogs"></i>
+              <span>项目制造</span>
+              <div class="stage-badge">项目经理评估</div>
+            </div>
+            <div class="stage-content">
+              <div class="pending-items">待审批: 1项</div>
+              <button class="btn btn-sm btn-ai">AI辅助审批</button>
+            </div>
+          </div>
+          <div class="approval-arrow">→</div>
+          
+          <div class="approval-stage">
+            <div class="stage-header">
+              <i class="fas fa-shopping-cart"></i>
+              <span>采购生产</span>
+              <div class="stage-badge">采购/生产评估</div>
+            </div>
+            <div class="stage-content">
+              <div class="pending-items">待审批: 4项</div>
+              <button class="btn btn-sm btn-ai">AI辅助审批</button>
+            </div>
+          </div>
+          <div class="approval-arrow">→</div>
+          
+          <div class="approval-stage">
+            <div class="stage-header">
+              <i class="fas fa-user-tie"></i>
+              <span>总经理审批</span>
+              <div class="stage-badge">最终决策</div>
+            </div>
+            <div class="stage-content">
+              <div class="pending-items">待审批: 2项</div>
+              <button class="btn btn-sm btn-primary">人工审批</button>
+            </div>
+          </div>
+          <div class="approval-arrow">→</div>
+          
+          <div class="approval-stage">
+            <div class="stage-header">
+              <i class="fas fa-check-circle"></i>
+              <span>标准化流程</span>
+              <div class="stage-badge">标准化评审</div>
+            </div>
+            <div class="stage-content">
+              <div class="pending-items">待处理: 1项</div>
+              <button class="btn btn-sm btn-success">完成归档</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="approval-stats">
+          <div class="stat-card">
+            <div class="stat-number">85%</div>
+            <div class="stat-label">AI审批准确率</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2.3天</div>
+            <div class="stat-label">平均审批周期</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">12项</div>
+            <div class="stat-label">待审批总数</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">流程合规率</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== DESIGN MODULE ===== -->
+      <div class="page" id="page-design">
+        <div class="module-header">
+          <h2><i class="fas fa-drafting-compass"></i> 仿真设计与DFM校验</h2>
+          <div class="module-stats">
+            <div class="mini-stat">
+              <span class="stat-num">95%</span>
+              <span class="stat-label">DFM识别率</span>
+            </div>
+            <div class="mini-stat">
+              <span class="stat-num">5min</span>
+              <span class="stat-label">平均校验时间</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="design-workspace">
+          <div class="design-upload">
+            <div class="upload-area">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>拖拽CAD文件到此处或点击上传</p>
+              <p class="upload-note">支持 .dwg, .step, .iges, .solidworks 格式</p>
+              <button class="btn btn-ai">选择文件</button>
+            </div>
+          </div>
+          
+          <div class="design-results">
+            <div class="result-tabs">
+              <button class="tab-btn active">仿真分析</button>
+              <button class="tab-btn">DFM检查</button>
+              <button class="tab-btn">优化建议</button>
+            </div>
+            <div class="result-content">
+              <div class="result-placeholder">
+                <i class="fas fa-cogs"></i>
+                <p>上传设计文件后开始AI分析</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BOM MANAGEMENT ===== -->
+      <div class="page" id="page-bom">
+        <div class="module-header">
+          <h2><i class="fas fa-list-alt"></i> BOM智能管理系统</h2>
+          <div class="module-actions">
+            <button class="btn btn-ai"><i class="fas fa-magic"></i> AI生成BOM</button>
+            <button class="btn btn-outline"><i class="fas fa-download"></i> 导出Excel</button>
+          </div>
+        </div>
+        
+        <div class="bom-workspace">
+          <div class="bom-summary">
+            <div class="summary-card">
+              <div class="summary-icon"><i class="fas fa-list"></i></div>
+              <div class="summary-info">
+                <div class="summary-number">247</div>
+                <div class="summary-label">物料总数</div>
+              </div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-icon"><i class="fas fa-dollar-sign"></i></div>
+              <div class="summary-info">
+                <div class="summary-number">¥45,680</div>
+                <div class="summary-label">预估成本</div>
+              </div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-icon"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="summary-info">
+                <div class="summary-number">3</div>
+                <div class="summary-label">风险物料</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bom-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>物料编码</th>
+                  <th>物料名称</th>
+                  <th>规格型号</th>
+                  <th>数量</th>
+                  <th>单价</th>
+                  <th>供应商</th>
+                  <th>状态</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="bomTableBody">
+                <!-- BOM数据将通过JavaScript动态加载 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== LEADS MANAGEMENT ===== -->
+      <div class="page" id="page-leads">
+        <div class="module-header">
+          <h2><i class="fas fa-user-plus"></i> 线索智能管理</h2>
+          <div class="module-actions">
+            <button class="btn btn-ai"><i class="fas fa-magic"></i> AI打分</button>
+            <button class="btn btn-primary"><i class="fas fa-plus"></i> 新增线索</button>
+          </div>
+        </div>
+        
+        <div class="leads-dashboard">
+          <div class="leads-funnel">
+            <div class="funnel-stage">
+              <div class="stage-name">新线索</div>
+              <div class="stage-count">24</div>
+              <div class="stage-bar" style="width: 100%; background: #3b82f6;"></div>
+            </div>
+            <div class="funnel-stage">
+              <div class="stage-name">已联系</div>
+              <div class="stage-count">18</div>
+              <div class="stage-bar" style="width: 75%; background: #10b981;"></div>
+            </div>
+            <div class="funnel-stage">
+              <div class="stage-name">有意向</div>
+              <div class="stage-count">12</div>
+              <div class="stage-bar" style="width: 50%; background: #f59e0b;"></div>
+            </div>
+            <div class="funnel-stage">
+              <div class="stage-name">商机</div>
+              <div class="stage-count">8</div>
+              <div class="stage-bar" style="width: 33%; background: #ef4444;"></div>
+            </div>
+          </div>
+          
+          <div class="leads-scoring">
+            <h3>AI智能打分</h3>
+            <div class="scoring-metrics">
+              <div class="metric">
+                <span class="metric-label">公司规模</span>
+                <div class="metric-bar"><div class="metric-fill" style="width: 85%;"></div></div>
+                <span class="metric-score">85分</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">需求匹配度</span>
+                <div class="metric-bar"><div class="metric-fill" style="width: 92%;"></div></div>
+                <span class="metric-score">92分</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">预算充足度</span>
+                <div class="metric-bar"><div class="metric-fill" style="width: 78%;"></div></div>
+                <span class="metric-score">78分</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">决策权限</span>
+                <div class="metric-bar"><div class="metric-fill" style="width: 88%;"></div></div>
+                <span class="metric-score">88分</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FINANCE MANAGEMENT ===== -->
+      <div class="page" id="page-finance">
+        <div class="module-header">
+          <h2><i class="fas fa-money-bill-wave"></i> 回款管理与风控</h2>
+          <div class="finance-summary">
+            <div class="finance-stat">
+              <span class="stat-amount">¥2,450,000</span>
+              <span class="stat-desc">本月回款</span>
+            </div>
+            <div class="finance-stat">
+              <span class="stat-amount">¥890,000</span>
+              <span class="stat-desc">逾期应收</span>
+            </div>
+            <div class="finance-stat">
+              <span class="stat-amount">15天</span>
+              <span class="stat-desc">平均回款周期</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="finance-dashboard">
+          <div class="risk-alerts">
+            <h3><i class="fas fa-exclamation-triangle"></i> 风险预警</h3>
+            <div class="alert-list">
+              <div class="alert-item high">
+                <div class="alert-icon"><i class="fas fa-exclamation-circle"></i></div>
+                <div class="alert-content">
+                  <div class="alert-title">高风险客户预警</div>
+                  <div class="alert-desc">博众精工 - 逾期30天，金额¥180,000</div>
+                </div>
+                <div class="alert-action">
+                  <button class="btn btn-sm btn-danger">立即催收</button>
+                </div>
+              </div>
+              <div class="alert-item medium">
+                <div class="alert-icon"><i class="fas fa-clock"></i></div>
+                <div class="alert-content">
+                  <div class="alert-title">即将逾期提醒</div>
+                  <div class="alert-desc">华为技术 - 3天后到期，金额¥320,000</div>
+                </div>
+                <div class="alert-action">
+                  <button class="btn btn-sm btn-warning">发送提醒</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="payment-forecast">
+            <h3><i class="fas fa-chart-line"></i> 回款预测</h3>
+            <div class="forecast-chart">
+              <div class="chart-placeholder">
+                <i class="fas fa-chart-area"></i>
+                <p>AI预测未来3个月回款趋势</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SERVICE TICKETS ===== -->
+      <div class="page" id="page-service">
+        <div class="module-header">
+          <h2><i class="fas fa-headset"></i> 智能服务工单系统</h2>
+          <div class="service-stats">
+            <div class="service-stat">
+              <span class="stat-num">12</span>
+              <span class="stat-label">待处理</span>
+            </div>
+            <div class="service-stat">
+              <span class="stat-num">3.2h</span>
+              <span class="stat-label">平均响应时间</span>
+            </div>
+            <div class="service-stat">
+              <span class="stat-num">92%</span>
+              <span class="stat-label">首次解决率</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-workspace">
+          <div class="ticket-board">
+            <div class="ticket-column">
+              <div class="column-header">
+                <h4>新建工单</h4>
+                <span class="ticket-count">5</span>
+              </div>
+              <div class="ticket-list" id="newTickets">
+                <!-- 工单卡片将通过JavaScript动态生成 -->
+              </div>
+            </div>
+            
+            <div class="ticket-column">
+              <div class="column-header">
+                <h4>处理中</h4>
+                <span class="ticket-count">4</span>
+              </div>
+              <div class="ticket-list" id="processingTickets">
+                <!-- 工单卡片将通过JavaScript动态生成 -->
+              </div>
+            </div>
+            
+            <div class="ticket-column">
+              <div class="column-header">
+                <h4>待验收</h4>
+                <span class="ticket-count">3</span>
+              </div>
+              <div class="ticket-list" id="pendingTickets">
+                <!-- 工单卡片将通过JavaScript动态生成 -->
+              </div>
+            </div>
+            
+            <div class="ticket-column">
+              <div class="column-header">
+                <h4>已完成</h4>
+                <span class="ticket-count">8</span>
+              </div>
+              <div class="ticket-list" id="completedTickets">
+                <!-- 工单卡片将通过JavaScript动态生成 -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="ai-assistant">
+            <h3><i class="fas fa-robot"></i> AI故障诊断助手</h3>
+            <div class="assistant-input">
+              <textarea placeholder="描述故障现象，AI将自动分类并推荐解决方案..."></textarea>
+              <button class="btn btn-ai">AI诊断</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MAINTENANCE ===== -->
+      <div class="page" id="page-maintenance">
+        <div class="module-header">
+          <h2><i class="fas fa-tools"></i> 预防性维护管理</h2>
+          <div class="maintenance-overview">
+            <div class="overview-card">
+              <i class="fas fa-calendar-check"></i>
+              <div class="card-info">
+                <span class="card-number">28</span>
+                <span class="card-label">本月计划</span>
+              </div>
+            </div>
+            <div class="overview-card">
+              <i class="fas fa-wrench"></i>
+              <div class="card-info">
+                <span class="card-number">6</span>
+                <span class="card-label">进行中</span>
+              </div>
+            </div>
+            <div class="overview-card">
+              <i class="fas fa-box"></i>
+              <div class="card-info">
+                <span class="card-number">15</span>
+                <span class="card-label">备件预警</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="maintenance-dashboard">
+          <div class="maintenance-calendar">
+            <h3>维护计划日历</h3>
+            <div class="calendar-view">
+              <div class="calendar-placeholder">
+                <i class="fas fa-calendar-alt"></i>
+                <p>AI智能排程的维护计划</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="spare-parts-forecast">
+            <h3>备件需求预测</h3>
+            <div class="parts-list">
+              <div class="part-item">
+                <div class="part-info">
+                  <span class="part-name">伺服电机</span>
+                  <span class="part-code">SM-001</span>
+                </div>
+                <div class="part-forecast">
+                  <span class="forecast-qty">预测需求: 3个</span>
+                  <span class="forecast-time">预计时间: 15天后</span>
+                </div>
+                <button class="btn btn-sm btn-primary">提前采购</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== DATA ANALYTICS ===== -->
+      <div class="page" id="page-analytics">
+        <div class="analytics-header">
+          <h2><i class="fas fa-chart-line"></i> 数据分析中心</h2>
+          <div class="analytics-filters">
+            <select class="select-sm">
+              <option>本月</option>
+              <option>本季度</option>
+              <option>本年度</option>
+            </select>
+            <select class="select-sm">
+              <option>全部部门</option>
+              <option>IPD研发</option>
+              <option>LTC销售</option>
+              <option>ITR服务</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="analytics-grid">
+          <div class="chart-card">
+            <h3>业务流程效率分析</h3>
+            <div class="chart-placeholder">
+              <i class="fas fa-chart-bar"></i>
+              <p>各业务模块效率对比</p>
+            </div>
+          </div>
+          
+          <div class="chart-card">
+            <h3>AI决策准确率趋势</h3>
+            <div class="chart-placeholder">
+              <i class="fas fa-chart-line"></i>
+              <p>AI模型性能监控</p>
+            </div>
+          </div>
+          
+          <div class="chart-card">
+            <h3>客户满意度分析</h3>
+            <div class="chart-placeholder">
+              <i class="fas fa-smile"></i>
+              <p>服务质量评估</p>
+            </div>
+          </div>
+          
+          <div class="chart-card">
+            <h3>成本效益分析</h3>
+            <div class="chart-placeholder">
+              <i class="fas fa-dollar-sign"></i>
+              <p>ROI投资回报分析</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- ===== COCKPIT ===== -->
